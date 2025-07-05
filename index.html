@@ -13,9 +13,9 @@
         extend: {
           colors: {
             blush: {
-              light: '#FFE4EC',
-              DEFAULT: '#FFCCE1',
-              dark: '#F8BBD0'
+              light: '#FFD3E6',
+              DEFAULT: '#FF9EBB',
+              dark: '#F06292'
             },
             base: '#FDF6F9'
           },
@@ -55,12 +55,16 @@
     }
   </script>
   <style>
+    html, body {
+      height: 100%;
+    }
     body {
       background-color: #fff0f5;
+      overflow-y: auto;
     }
     .typing-text {
       overflow: hidden;
-      border-right: 2px solid #F8BBD0;
+      border-right: 2px solid #F06292;
       white-space: nowrap;
     }
     .butterfly {
@@ -72,34 +76,28 @@
   </style>
 </head>
 
-<body class="... overflow-x-hidden overflow-y-auto min-h-screen">
+<body class="text-gray-900 font-sans relative overflow-x-hidden min-h-screen">
   <!-- Butterflies -->
   <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="butterfly top-10 left-10" alt="butterfly" />
   <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="butterfly top-20 right-10" alt="butterfly" />
 
   <div class="max-w-5xl mx-auto px-6 py-10">
-
-<body class="text-gray-800 font-sans relative overflow-hidden">
-  <!-- Butterflies -->
-  <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="butterfly top-10 left-10" />
-  <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="butterfly top-20 right-10" />
-
-  <div class="max-w-5xl mx-auto px-6 py-10">
     <!-- Header -->
     <header class="flex flex-col md:flex-row items-center gap-6 md:gap-10 animate-fadeInUp">
-      <img src="digvisripuja.jpg" alt="Digvisri Puja" class="w-32 h-32 rounded-full shadow-lg object-cover border-4 border-blush" />
+      <img src="digvisripuja.jpg" alt="Digvisri Puja" class="w-32 h-32 rounded-full shadow-lg object-cover border-4 border-blush-dark" />
       <div>
-        <h1 class="text-4xl font-bold text-blush-dark">Digvisri Puja</h1>
+        <h1 class="text-5xl font-extrabold text-blush-dark leading-tight">Digvisri Puja</h1>
         <p class="text-blush-dark text-lg mt-2 typing-text animate-typing">Crafting code with a hint of magic ✨</p>
         <hr class="border-blush w-24 my-2">
-        <p class="text-sm">
-          <a href="tel:+918341868662" class="hover:underline">+91-7075700752</a> |
+        <p class="text-sm text-gray-800">
+          <a href="tel:+917075700752" class="hover:underline">+91-7075700752</a> |
           <a href="mailto:digvisripujav@gmail.com" class="hover:underline">digvisripujav@gmail.com</a> |
           <a href="https://linkedin.com/in/digvisri" class="hover:underline">LinkedIn</a> |
           <a href="https://github.com/digvsr" class="hover:underline">GitHub</a>
         </p>
       </div>
     </header>
+
 
     <!-- About Me -->
     <section class="mt-10 animate-fadeInUp">
