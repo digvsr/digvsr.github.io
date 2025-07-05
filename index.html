@@ -11,6 +11,14 @@
     tailwind.config = {
       theme: {
         extend: {
+          colors: {
+            blush: {
+              light: '#FFE4EC',
+              DEFAULT: '#FFCCE1',
+              dark: '#F8BBD0'
+            },
+            base: '#FDF6F9'
+          },
           fontFamily: {
             sans: ['Fira Sans', 'sans-serif']
           }
@@ -18,17 +26,22 @@
       }
     }
   </script>
+  <style>
+    body {
+      background-color: #fff0f5;
+    }
+  </style>
 </head>
 
-<body class="bg-gray-900 text-white font-sans">
-  <div class="max-w-6xl mx-auto px-4 py-10">
+<body class="text-gray-800 font-sans">
+  <div class="max-w-5xl mx-auto px-6 py-10">
     <!-- Header -->
     <header class="flex flex-col md:flex-row items-center gap-6 md:gap-10">
-      <img src="digvisripuja.jpg" alt="Digvisri Puja" class="w-32 h-32 rounded-full shadow-lg object-cover" />
+      <img src="digvisripuja.jpg" alt="Digvisri Puja" class="w-32 h-32 rounded-full shadow-lg object-cover border-4 border-blush" />
       <div>
-        <h1 class="text-4xl font-bold text-pink-500">Digvisri Puja</h1>
-        <hr class="border-pink-500 my-2 w-32">
-        <p class="text-sm space-y-1">
+        <h1 class="text-4xl font-bold text-blush-dark">Digvisri Puja</h1>
+        <hr class="border-blush w-24 my-2">
+        <p class="text-sm">
           <a href="tel:+918341868662" class="hover:underline">+91-8341868662</a> |
           <a href="mailto:digvisripujav@gmail.com" class="hover:underline">digvisripujav@gmail.com</a> |
           <a href="https://linkedin.com/in/digvisri" class="hover:underline">LinkedIn</a> |
@@ -39,25 +52,25 @@
 
     <!-- About Me -->
     <section class="mt-10">
-      <h2 class="text-2xl font-semibold border-b border-pink-500 inline-block mb-4">About Me</h2>
-      <p class="text-gray-300">Recent graduate with a strong foundation in Python and Java, enthusiastic about innovation. Passionate about aligning with cutting-edge technologies, currently exploring artificial intelligence and its transformative potential.</p>
+      <h2 class="text-2xl font-semibold text-blush-dark border-b-2 border-blush inline-block mb-4">About Me</h2>
+      <p class="text-gray-700">I’m a tech-enthusiast and recent B.Tech graduate with a strong grip on Python and Java. I’m passionate about AI and emerging technologies, and love bridging the gap between ideas and impactful solutions. Always curious, always building.</p>
     </section>
 
     <!-- Skills & Languages -->
     <div class="grid md:grid-cols-2 gap-10 mt-10">
       <section>
-        <h2 class="text-2xl font-semibold border-b border-pink-500 inline-block mb-4">Technical Skills</h2>
+        <h2 class="text-2xl font-semibold text-blush-dark border-b-2 border-blush inline-block mb-4">Technical Skills</h2>
         <p><strong>Languages:</strong> Python, C++, SQL, HTML/CSS, Java</p>
         <p><strong>Frameworks:</strong> React, Node.js, Spring Boot</p>
-        <p><strong>Technologies:</strong> Docker, Kubernetes</p>
+        <p><strong>Tools:</strong> Docker, Kubernetes, Git</p>
       </section>
 
       <section>
-        <h2 class="text-2xl font-semibold border-b border-pink-500 inline-block mb-4">Languages</h2>
+        <h2 class="text-2xl font-semibold text-blush-dark border-b-2 border-blush inline-block mb-4">Languages Spoken</h2>
         <ul class="list-disc list-inside">
-          <li>English</li>
-          <li>Telugu</li>
-          <li>Hindi</li>
+          <li>English (Fluent)</li>
+          <li>Telugu (Native)</li>
+          <li>Hindi (Proficient)</li>
           <li>Spanish (Learning)</li>
         </ul>
       </section>
@@ -65,49 +78,177 @@
 
     <!-- Education -->
     <section class="mt-10">
-      <h2 class="text-2xl font-semibold border-b border-pink-500 inline-block mb-4">Education</h2>
-      <p class="text-gray-200 font-medium">Bachelor of Technology in Computer Science and Engineering</p>
-      <p>G. Narayanamma Institute of Technology and Science for Women, Hyderabad</p>
-      <p class="text-sm text-gray-400">Aug 2021 – May 2025</p>
+      <h2 class="text-2xl font-semibold text-blush-dark border-b-2 border-blush inline-block mb-4">Education</h2>
+      <p class="text-gray-800 font-medium">B.Tech in Computer Science and Engineering</p>
+      <p>G. Narayanamma Institute of Technology and Science, Hyderabad</p>
+      <p class="text-sm text-gray-600">Aug 2021 – May 2025</p>
     </section>
 
     <!-- Projects -->
     <section class="mt-10">
-      <h2 class="text-2xl font-semibold border-b border-pink-500 inline-block mb-4">Projects</h2>
+      <h2 class="text-2xl font-semibold text-blush-dark border-b-2 border-blush inline-block mb-4">Projects</h2>
 
       <div class="mb-6">
-        <h3 class="text-lg font-bold text-pink-400">SafeJob AI</h3>
-        <p class="text-sm text-gray-400">Python, JavaScript, HTML/CSS | Nov 2024 – Jan 2025</p>
-        <ul class="list-disc list-inside text-gray-300">
-          <li>Built a machine learning classifier to detect fake job postings.</li>
-          <li>Trained XGBoost on 650+ features; achieved 95.7% accuracy and 90.2% recall.</li>
+        <h3 class="text-lg font-bold text-blush-dark">SafeJob AI</h3>
+        <p class="text-sm text-gray-500">Nov 2024 – Jan 2025 | Python, JavaScript, HTML/CSS</p>
+        <ul class="list-disc list-inside text-gray-700">
+          <li>Built a classifier to identify fake job postings using XGBoost and 650+ data points.</li>
+          <li>Achieved 95.7% accuracy and 90.2% recall on validation dataset.</li>
         </ul>
       </div>
 
       <div>
-        <h3 class="text-lg font-bold text-pink-400">River Network & Flood Detection</h3>
-        <p class="text-sm text-gray-400">Python, TensorFlow, OpenCV | May 2022 – Mar 2025</p>
-        <ul class="list-disc list-inside text-gray-300">
-          <li>Developed deep learning model to detect and monitor water bodies using satellite imagery.</li>
-          <li>Achieved 97.56% accuracy and 99.17% precision on 20 years of geospatial climate data.</li>
+        <h3 class="text-lg font-bold text-blush-dark">River Network & Flood Detection</h3>
+        <p class="text-sm text-gray-500">May 2022 – Mar 2025 | Python, TensorFlow, OpenCV</p>
+        <ul class="list-disc list-inside text-gray-700">
+          <li>Developed a DeepLabV3+ model to monitor water bodies and climatic shifts using satellite imagery.</li>
+          <li>Processed 20 years of data; achieved 97.56% accuracy and 99.17% precision.</li>
         </ul>
       </div>
     </section>
 
     <!-- Achievements -->
     <section class="mt-10">
-      <h2 class="text-2xl font-semibold border-b border-pink-500 inline-block mb-4">Achievements</h2>
-      <ul class="list-disc list-inside text-gray-300">
-        <li>Top 5 academic project recognition in final year evaluations.</li>
-        <li>Merit certificate at IIITH Megathon for innovative problem-solving.</li>
-        <li>Certificate of Appreciation as CSI student coordinator.</li>
-        <li>Participated in AWS, Cybersecurity workshops and multiple Hackathons.</li>
+      <h2 class="text-2xl font-semibold text-blush-dark border-b-2 border-blush inline-block mb-4">Achievements</h2>
+      <ul class="list-disc list-inside text-gray-700">
+        <li>Top 5 in final year academic project evaluations.</li>
+        <li>Merit recognition at IIITH Megathon for innovative tech solutions.</li>
+        <li>Certificate of Appreciation as CSI Student Coordinator.</li>
+        <li>Attended AWS & Cybersecurity workshops; participated in multiple hackathons.</li>
       </ul>
     </section>
 
-    <!-- Resume Download -->
-    <section class="mt-10 text-center">
-      <a href="resume.pdf" class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-4 rounded shadow inline-block">Download Resume (PDF)</a>
+    <!-- Footer -->
+    <footer class="mt-16 text-center text-gray-500 text-sm">
+      &copy; 2025 Digvisri Puja. All rights reserved.
+    </footer>
+  </div>
+
+  <!-- Scroll Animation (AOS) -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script>AOS.init();</script>
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digvisri Puja - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            blush: {
+              light: '#FFE4EC',
+              DEFAULT: '#FFCCE1',
+              dark: '#F8BBD0'
+            },
+            base: '#FDF6F9'
+          },
+          fontFamily: {
+            sans: ['Fira Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #fff0f5;
+    }
+  </style>
+</head>
+
+<body class="text-gray-800 font-sans">
+  <div class="max-w-5xl mx-auto px-6 py-10">
+    <!-- Header -->
+    <header class="flex flex-col md:flex-row items-center gap-6 md:gap-10">
+      <img src="digvisripuja.jpg" alt="Digvisri Puja" class="w-32 h-32 rounded-full shadow-lg object-cover border-4 border-blush" />
+      <div>
+        <h1 class="text-4xl font-bold text-blush-dark">Digvisri Puja</h1>
+        <hr class="border-blush w-24 my-2">
+        <p class="text-sm">
+          <a href="tel:+918341868662" class="hover:underline">+91-8341868662</a> |
+          <a href="mailto:digvisripujav@gmail.com" class="hover:underline">digvisripujav@gmail.com</a> |
+          <a href="https://linkedin.com/in/digvisri" class="hover:underline">LinkedIn</a> |
+          <a href="https://github.com/digvsr" class="hover:underline">GitHub</a>
+        </p>
+      </div>
+    </header>
+
+    <!-- About Me -->
+    <section class="mt-10">
+      <h2 class="text-2xl font-semibold text-blush-dark border-b-2 border-blush inline-block mb-4">About Me</h2>
+      <p class="text-gray-700">I’m a tech-enthusiast and recent B.Tech graduate with a strong grip on Python and Java. I’m passionate about AI and emerging technologies, and love bridging the gap between ideas and impactful solutions. Always curious, always building.</p>
+    </section>
+
+    <!-- Skills & Languages -->
+    <div class="grid md:grid-cols-2 gap-10 mt-10">
+      <section>
+        <h2 class="text-2xl font-semibold text-blush-dark border-b-2 border-blush inline-block mb-4">Technical Skills</h2>
+        <p><strong>Languages:</strong> Python, C++, SQL, HTML/CSS, Java</p>
+        <p><strong>Frameworks:</strong> React, Node.js, Spring Boot</p>
+        <p><strong>Tools:</strong> Docker, Kubernetes, Git</p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold text-blush-dark border-b-2 border-blush inline-block mb-4">Languages Spoken</h2>
+        <ul class="list-disc list-inside">
+          <li>English (Fluent)</li>
+          <li>Telugu (Native)</li>
+          <li>Hindi (Proficient)</li>
+          <li>Spanish (Learning)</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Education -->
+    <section class="mt-10">
+      <h2 class="text-2xl font-semibold text-blush-dark border-b-2 border-blush inline-block mb-4">Education</h2>
+      <p class="text-gray-800 font-medium">B.Tech in Computer Science and Engineering</p>
+      <p>G. Narayanamma Institute of Technology and Science, Hyderabad</p>
+      <p class="text-sm text-gray-600">Aug 2021 – May 2025</p>
+    </section>
+
+    <!-- Projects -->
+    <section class="mt-10">
+      <h2 class="text-2xl font-semibold text-blush-dark border-b-2 border-blush inline-block mb-4">Projects</h2>
+
+      <div class="mb-6">
+        <h3 class="text-lg font-bold text-blush-dark">SafeJob AI</h3>
+        <p class="text-sm text-gray-500">Nov 2024 – Jan 2025 | Python, JavaScript, HTML/CSS</p>
+        <ul class="list-disc list-inside text-gray-700">
+          <li>Built a classifier to identify fake job postings using XGBoost and 650+ data points.</li>
+          <li>Achieved 95.7% accuracy and 90.2% recall on validation dataset.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-bold text-blush-dark">River Network & Flood Detection</h3>
+        <p class="text-sm text-gray-500">May 2022 – Mar 2025 | Python, TensorFlow, OpenCV</p>
+        <ul class="list-disc list-inside text-gray-700">
+          <li>Developed a DeepLabV3+ model to monitor water bodies and climatic shifts using satellite imagery.</li>
+          <li>Processed 20 years of data; achieved 97.56% accuracy and 99.17% precision.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Achievements -->
+    <section class="mt-10">
+      <h2 class="text-2xl font-semibold text-blush-dark border-b-2 border-blush inline-block mb-4">Achievements</h2>
+      <ul class="list-disc list-inside text-gray-700">
+        <li>Top 5 in final year academic project evaluations.</li>
+        <li>Merit recognition at IIITH Megathon for innovative tech solutions.</li>
+        <li>Certificate of Appreciation as CSI Student Coordinator.</li>
+        <li>Attended AWS & Cybersecurity workshops; participated in multiple hackathons.</li>
+      </ul>
     </section>
 
     <!-- Footer -->
