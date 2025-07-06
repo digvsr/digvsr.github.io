@@ -36,12 +36,20 @@
             pulseScale: {
               '0%, 100%': { transform: 'scale(1)' },
               '50%': { transform: 'scale(1.05)' }
+            },
+            typing: {
+              from: { width: '0' },
+              to: { width: '100%' }
+            },
+            blink: {
+              '50%': { borderColor: 'transparent' }
             }
           },
           animation: {
             fadeInUp: 'fadeInUp 1s ease-out both',
             fadeInScale: 'fadeInScale 1s ease-out both',
-            pulseScale: 'pulseScale 2s ease-in-out infinite'
+            pulseScale: 'pulseScale 2s ease-in-out infinite',
+            typing: 'typing 3s steps(30, end) forwards, blink 0.75s step-end infinite'
           }
         }
       }
@@ -65,6 +73,8 @@
       overflow: hidden;
       border-right: 2px solid #F06292;
       white-space: nowrap;
+      animation: typing 3s steps(30, end) forwards, blink 0.75s step-end infinite;
+      width: 0;
     }
     [data-animate] {
       opacity: 0;
@@ -78,7 +88,6 @@
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Raleway', 'Nunito', sans-serif;
     }
-
     .edu-container {
       display: flex;
       gap: 1rem;
@@ -88,9 +97,6 @@
       transition: all 0.4s ease-in-out;
       position: relative;
       overflow: hidden;
-    }
-    .edu-card {
-      flex: 1;
     }
     .edu-card:hover {
       flex: 1.6;
@@ -105,10 +111,9 @@
     }
     .edu-card:hover .course-info {
       opacity: 1;
-      max-height: 400px;
+      max-height: 300px;
       margin-top: 1rem;
     }
-
     .project-container {
       display: flex;
       flex-wrap: wrap;
@@ -118,9 +123,7 @@
       flex: 1 1 calc(50% - 1rem);
       transition: all 0.4s ease-in-out;
       position: relative;
-    }
-    .project-card {
-      flex: 1 1 calc(50% - 1rem);
+      overflow: hidden;
     }
     .project-card:hover {
       flex: 1.5 1 calc(50% - 1rem);
@@ -138,7 +141,6 @@
       max-height: 400px;
       margin-top: 0.75rem;
     }
-
     .tech-tooltip {
       position: absolute;
       top: 1rem;
@@ -165,7 +167,6 @@
     }
   </style>
 </head>
-
 <body class="text-gray-900 font-sans relative overflow-x-hidden transition duration-300">
   <div class="max-w-5xl mx-auto px-6 py-10">
 
@@ -188,7 +189,7 @@
     <!-- About Me -->
     <section class="mt-10" data-animate>
       <h2 class="text-2xl font-semibold text-blush-dark border-b-2 border-blush inline-block mb-4">About Me</h2>
-      <p class="text-gray-700 dark:text-gray-200">Hey! I’m Digvisri — a CS grad trying to be creativity with my code. I love AI, design, and tech. When I’m not experimenting with neural networks, I’m probably sketching interfaces or learning something weirdly cool.</p>
+      <p class="text-gray-700 dark:text-gray-200">Hey! I’m Digvisri — a CS grad trying to be creativity with my code. I love AI, design, and tech. When I’m not experimenting, I’m probably sketching interfaces or learning something weirdly cool.</p>
     </section>
 
     <!-- Education Timeline as Hover Cards -->
