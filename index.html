@@ -9,6 +9,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
@@ -24,31 +25,22 @@
           },
           keyframes: {
             fadeInUp: {
-              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '0%': { opacity: '0', transform: 'translateY(40px)' },
               '100%': { opacity: '1', transform: 'translateY(0)' },
             },
-            typing: {
-              from: { width: '0' },
-              to: { width: '100%' }
+            fadeInScale: {
+              '0%': { opacity: '0', transform: 'scale(0.95)' },
+              '100%': { opacity: '1', transform: 'scale(1)' },
             },
-            blink: {
-              '50%': { borderColor: 'transparent' }
-            },
-            fly: {
-              '0%': { transform: 'translateY(0px) translateX(0px)' },
-              '50%': { transform: 'translateY(-20px) translateX(10px)' },
-              '100%': { transform: 'translateY(0px) translateX(0px)' },
-            },
-            grow: {
-              '0%': { width: '0%' },
-              '100%': { width: '100%' },
+            pulseScale: {
+              '0%, 100%': { transform: 'scale(1)' },
+              '50%': { transform: 'scale(1.05)' }
             }
           },
           animation: {
             fadeInUp: 'fadeInUp 1s ease-out both',
-            typing: 'typing 3s steps(30, end) forwards, blink 0.75s step-end infinite',
-            fly: 'fly 6s ease-in-out infinite',
-            grow: 'grow 2s ease-in-out forwards'
+            fadeInScale: 'fadeInScale 1s ease-out both',
+            pulseScale: 'pulseScale 2s ease-in-out infinite'
           }
         }
       }
@@ -56,144 +48,172 @@
   </script>
   <style>
     html, body {
-      height: 100%;
+      height: auto;
+      min-height: 100%;
     }
     body {
       background-color: #fff0f5;
-      overflow-y: auto;
+      overflow-y: scroll;
+      transition: background 0.3s;
+    }
+    body.dark {
+      background-color: #1a1a1a;
+      color: #f0f0f0;
     }
     .typing-text {
       overflow: hidden;
       border-right: 2px solid #F06292;
       white-space: nowrap;
     }
-    .butterfly {
-      width: 30px;
-      position: absolute;
-      animation: fly 6s ease-in-out infinite;
-      z-index: 50;
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    [data-animate].show {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
 
-<body class="text-gray-900 font-sans relative overflow-x-hidden min-h-screen">
-  <!-- Butterflies -->
-  <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="butterfly top-10 left-10" alt="butterfly" />
-  <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="butterfly top-20 right-10" alt="butterfly" />
-
+<body class="text-gray-900 font-sans relative overflow-x-hidden transition duration-300">
   <div class="max-w-5xl mx-auto px-6 py-10">
+    <!-- Theme Toggle -->
+    <div class="flex justify-end">
+      <button id="theme-toggle" class="bg-blush-dark text-white px-4 py-1 rounded-full text-sm shadow hover:shadow-md transition">Toggle Theme</button>
+    </div>
+
     <!-- Header -->
-    <header class="flex flex-col md:flex-row items-center gap-6 md:gap-10 animate-fadeInUp">
+    <header class="flex flex-col md:flex-row items-center gap-6 md:gap-10 animate-fadeInScale" data-animate>
       <img src="digvisripuja.jpg" alt="Digvisri Puja" class="w-32 h-32 rounded-full shadow-lg object-cover border-4 border-blush-dark" />
       <div>
-        <h1 class="text-5xl font-extrabold text-blush-dark leading-tight">Digvisri Puja</h1>
-        <p class="text-blush-dark text-lg mt-2 typing-text animate-typing">Crafting code with a hint of magic ✨</p>
+        <h1 class="text-5xl font-extrabold text-blush-dark leading-tight dark:text-pink-300">Digvisri Puja</h1>
+        <p class="text-blush-dark text-lg mt-2 typing-text animate-typing dark:text-pink-200">Crafting code with a hint of magic ✨</p>
         <hr class="border-blush w-24 my-2">
-        <p class="text-sm text-gray-800">
+        <p class="text-sm text-gray-800 dark:text-gray-300">
           <a href="tel:+917075700752" class="hover:underline">+91-7075700752</a> |
-          <a href="mailto:digvisripujav@gmail.com" class="hover:underline">digvisripujav@gmail.com</a> |
+          <a href="mailto:digvisripujav@gmail.com" class="hover:underline">digvsr@gmail.com</a> |
           <a href="https://linkedin.com/in/digvisri" class="hover:underline">LinkedIn</a> |
           <a href="https://github.com/digvsr" class="hover:underline">GitHub</a>
         </p>
       </div>
     </header>
 
-
     <!-- About Me -->
-    <section class="mt-10 animate-fadeInUp">
+    <section class="mt-10" data-animate>
       <h2 class="text-2xl font-semibold text-blush-dark border-b-2 border-blush inline-block mb-4">About Me</h2>
-      <p class="text-gray-700">Hey! I’m Digvisri — a Computer Science grad trying to be creativity with my code. I love AI, design, and tech. When I’m not experimenting with neural networks, I’m probably sketching interfaces or learning something weirdly cool.</p>
+      <p class="text-gray-700 dark:text-gray-200">I’m a tech-enthusiast and recent graduate with a strong grip on Python and Java. I’m passionate about AI and emerging technologies, and love bridging the gap between ideas and impactful solutions. Always curious, always building.</p>
     </section>
 
-    <!-- Skills & Languages -->
-    <div class="grid md:grid-cols-2 gap-10 mt-10 animate-fadeInUp">
-      <section>
-        <h2 class="text-2xl font-semibold text-blush-dark border-b-2 border-blush inline-block mb-4">Technical Skills</h2>
-        <div class="mb-2">
-          <p class="text-sm font-medium">Python</p>
-          <div class="w-full h-2 bg-blush-light rounded-full overflow-hidden">
-            <div class="h-full bg-blush-dark animate-grow" style="width: 90%"></div>
-          </div>
-        </div>
-        <div class="mb-2">
-          <p class="text-sm font-medium">C++</p>
-          <div class="w-full h-2 bg-blush-light rounded-full overflow-hidden">
-            <div class="h-full bg-blush-dark animate-grow" style="width: 85%"></div>
-          </div>
-        </div>
-        <div class="mb-2">
-          <p class="text-sm font-medium">Javascript</p>
-          <div class="w-full h-2 bg-blush-light rounded-full overflow-hidden">
-            <div class="h-full bg-blush-dark animate-grow" style="width: 80%"></div>
-          </div>
-        </div>
-        <div class="mb-2">
-          <p class="text-sm font-medium">HTML/CSS</p>
-          <div class="w-full h-2 bg-blush-light rounded-full overflow-hidden">
-            <div class="h-full bg-blush-dark animate-grow" style="width: 75%"></div>
-          </div>
-        </div>
-      </section>
+    <!-- Education Timeline as Hover Cards -->
+    <section class="mt-10 grid md:grid-cols-3 gap-4" data-animate>
+      <div class="p-4 rounded-xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+        <h3 class="font-bold text-blush-dark dark:text-pink-200">Bachelor of technology(2021 – 2025)</h3>
+        <p>G. Narayanamma Institute of Technology and Science</p>
+        <p class="text-sm text-gray-500">Computer Science & Engineering</p>
+      </div>
+      <div class="p-4 rounded-xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+        <h3 class="font-bold text-blush-dark dark:text-pink-200">Intermediate (2019 – 2021)</h3>
+        <p>Sree Nalanda Junior College</p>
+        <p class="text-sm text-gray-500">Math, Physics & Chemistry Stream</p>
+      </div>
+      <div class="p-4 rounded-xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+        <h3 class="font-bold text-blush-dark dark:text-pink-200">Schooling (– 2019)</h3>
+        <p>Excellent English Medium High School</p>
+      </div>
+    </section>
 
-      <section>
-        <h2 class="text-2xl font-semibold text-blush-dark border-b-2 border-blush inline-block mb-4">Languages Spoken</h2>
-        <ul class="list-disc list-inside">
+    <!-- Technical Skills Cards -->
+    <section class="mt-10 grid md:grid-cols-3 gap-4" data-animate>
+      <div class="p-4 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+        <h3 class="font-semibold text-blush-dark dark:text-pink-200 mb-2">Languages</h3>
+        <ul class="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+          <li>Python</li>
+          <li>C++</li>
+          <li>Java</li>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+        </ul>
+      </div>
+      <div class="p-4 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+        <h3 class="font-semibold text-blush-dark dark:text-pink-200 mb-2">Frameworks</h3>
+        <ul class="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+          <li>React</li>
+          <li>Node.js</li>
+          <li>Flask</li>
+          <li>Tailwind CSS</li>
+        </ul>
+      </div>
+      <div class="p-4 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+        <h3 class="font-semibold text-blush-dark dark:text-pink-200 mb-2">Tools</h3>
+        <ul class="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+          <li>Git</li>
+          <li>Figma</li>
+          <li>VS Code</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Languages Spoken -->
+    <section class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4" data-animate>
+      <div class="p-4 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+        <h3 class="font-semibold text-blush-dark dark:text-pink-200 mb-2">Languages Spoken</h3>
+        <ul class="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
           <li>English (Fluent)</li>
           <li>Telugu (Native)</li>
           <li>Hindi (Proficient)</li>
           <li>Spanish (Learning)</li>
         </ul>
-      </section>
-    </div>
-
-    <!-- Education -->
-    <section class="mt-10 animate-fadeInUp">
-      <h2 class="text-2xl font-semibold text-blush-dark border-b-2 border-blush inline-block mb-4">Education</h2>
-      <p class="text-gray-800 font-medium">B.Tech in Computer Science and Engineering</p>
-      <p>G. Narayanamma Institute of Technology and Science, Hyderabad</p>
-      <p class="text-sm text-gray-600">Aug 2021 – May 2025</p>
-    </section>
-
-    <!-- Projects -->
-    <section class="mt-10 animate-fadeInUp">
-      <h2 class="text-2xl font-semibold text-blush-dark border-b-2 border-blush inline-block mb-4">Projects</h2>
-
-      <div class="mb-6">
-        <h3 class="text-lg font-bold text-blush-dark">SafeJob AI</h3>
-        <p class="text-sm text-gray-500">Nov 2024 – Jan 2025 | Python, JavaScript, HTML/CSS</p>
-        <ul class="list-disc list-inside text-gray-700">
-          <li>Engineered a fake job posting classifier using XGBoost on 650+ engineered features.</li>
-          <li>Delivered 95.7% accuracy and 90.2% recall, helping users avoid fraud effectively.</li>
-        </ul>
-      </div>
-
-      <div>
-        <h3 class="text-lg font-bold text-blush-dark">River Network & Flood Detection</h3>
-        <p class="text-sm text-gray-500">May 2022 – Mar 2025 | Python, TensorFlow, OpenCV</p>
-        <ul class="list-disc list-inside text-gray-700">
-          <li>Built a DeepLabV3+ based detection model for analyzing satellite images of water bodies.</li>
-          <li>Objective is to classify river networks and monitor climatic changes.</li>
-          <li>Processed two decades of data with 97.56% accuracy and 99.17% precision in flood prediction.</li>
-        </ul>
       </div>
     </section>
 
-    <!-- Achievements -->
-    <section class="mt-10 animate-fadeInUp">
-      <h2 class="text-2xl font-semibold text-blush-dark border-b-2 border-blush inline-block mb-4">Achievements</h2>
-      <ul class="list-disc list-inside text-gray-700">
-        <li>Ranked Top 5 in final year CSE capstone project showcase.</li>
-        <li>Recognized at IIITH Megathon for creative problem-solving.</li>
-        <li>Honored with a Certificate of Appreciation as CSI Student Coordinator.</li>
-        <li>Active participant in AWS & Cybersecurity workshops and hackathons.</li>
-      </ul>
+    <!-- Projects Cards -->
+    <section class="mt-12" data-animate>
+      <h2 class="text-2xl font-semibold text-blush-dark dark:text-pink-300 mb-4">Projects</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-5 rounded-xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+          <h3 class="text-xl font-bold text-blush-dark dark:text-pink-200">SafeJob AI</h3>
+          <p class="text-sm text-gray-500">Nov 2024 – Jan 2025</p>
+          <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 mt-2 text-sm">
+            <li>Built an XGBoost model to detect fake job posts from real-world listings.</li>
+            <li>Engineered 650+ features using job descriptions, titles, emails, and company domains.</li>
+            <li>Deployed a user-friendly web interface using Flask + JavaScript.</li>
+            <li>Delivered 98.7% accuracy with 95.2% recall for scam prevention.</li>
+          </ul>
+        </div>
+        <div class="p-5 rounded-xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+          <h3 class="text-xl font-bold text-blush-dark dark:text-pink-200">Advance River Network & Flood Detector</h3>
+          <p class="text-sm text-gray-500">May 2022 – Mar 2025</p>
+          <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 mt-2 text-sm">
+             <li>Implemented image preprocessing and segmentation for detecting water bodies.</li>
+            <li>Used TensorFlow models to predict water level percentages from satellite images.</li>
+            <li>Analyzed paired images to classify environmental impacts like floods or droughts.</li>
+            <li>Built a user-friendly web app using Flask for uploading and comparing image results.</li>
+            <li>Empowered decision-making in resource and disaster management through AI-powered analysis.</li>
+            <li>Scored 97.56% accuracy and 99.17% precision on test imagery.</li>
+          </ul>
+        </div>
+      </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="mt-16 text-center text-gray-500 text-sm animate-fadeInUp">
-      &copy; 2025 Digvisri Puja. Made with 💗 and VS Code vibes.
-    </footer>
   </div>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+  </script>
 </body>
 
 </html>
