@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Digvisri Puja - Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Raleway:wght@600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -21,7 +21,8 @@
             base: '#FDF6F9'
           },
           fontFamily: {
-            sans: ['Fira Sans', 'sans-serif']
+            sans: ['Nunito', 'Manrope', 'Sora', 'sans-serif'],
+            heading: ['Raleway', 'Nunito', 'sans-serif']
           },
           keyframes: {
             fadeInUp: {
@@ -74,15 +75,101 @@
       opacity: 1;
       transform: translateY(0);
     }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Raleway', 'Nunito', sans-serif;
+    }
+
+    .edu-container {
+      display: flex;
+      gap: 1rem;
+    }
+    .edu-card {
+      flex: 1;
+      transition: all 0.4s ease-in-out;
+      position: relative;
+      overflow: hidden;
+    }
+    .edu-card {
+      flex: 1;
+    }
+    .edu-card:hover {
+      flex: 1.6;
+      transform: scale(1.03);
+      z-index: 10;
+    }
+    .edu-card .course-info {
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.4s ease-in-out;
+    }
+    .edu-card:hover .course-info {
+      opacity: 1;
+      max-height: 400px;
+      margin-top: 1rem;
+    }
+
+    .project-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .project-card {
+      flex: 1 1 calc(50% - 1rem);
+      transition: all 0.4s ease-in-out;
+      position: relative;
+    }
+    .project-card {
+      flex: 1 1 calc(50% - 1rem);
+    }
+    .project-card:hover {
+      flex: 1.5 1 calc(50% - 1rem);
+      transform: scale(1.03);
+      z-index: 10;
+    }
+    .project-card .project-details {
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.4s ease-in-out;
+    }
+    .project-card:hover .project-details {
+      opacity: 1;
+      max-height: 400px;
+      margin-top: 0.75rem;
+    }
+
+    .tech-tooltip {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: #FF9EBB;
+      color: white;
+      border-radius: 9999px;
+      padding: 0.3rem 0.7rem;
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
+    .tech-tooltip:hover::after {
+      content: attr(data-tech);
+      position: absolute;
+      bottom: -1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff0f5;
+      color: #333;
+      padding: 0.3rem 0.6rem;
+      border-radius: 0.375rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      white-space: nowrap;
+    }
   </style>
 </head>
 
 <body class="text-gray-900 font-sans relative overflow-x-hidden transition duration-300">
   <div class="max-w-5xl mx-auto px-6 py-10">
-    <div class="flex justify-end">
-      <button id="theme-toggle" class="bg-blush-dark text-white px-4 py-1 rounded-full text-sm shadow hover:shadow-md transition">Toggle Theme</button>
-    </div>
 
+    <!-- Header -->
     <header class="flex flex-col md:flex-row items-center gap-6 md:gap-10 animate-fadeInScale" data-animate>
       <img src="digvisripuja.jpg" alt="Digvisri Puja" class="w-32 h-32 rounded-full shadow-lg object-cover border-4 border-blush-dark" />
       <div>
@@ -98,29 +185,152 @@
       </div>
     </header>
 
+    <!-- About Me -->
+    <section class="mt-10" data-animate>
+      <h2 class="text-2xl font-semibold text-blush-dark border-b-2 border-blush inline-block mb-4">About Me</h2>
+      <p class="text-gray-700 dark:text-gray-200">Hey! I’m Digvisri — a CS grad trying to be creativity with my code. I love AI, design, and tech. When I’m not experimenting with neural networks, I’m probably sketching interfaces or learning something weirdly cool.</p>
+    </section>
+
+    <!-- Education Timeline as Hover Cards -->
+    
+<body class="text-gray-900 font-sans relative overflow-x-hidden transition duration-300">
+  <div class="max-w-5xl mx-auto px-6 py-10">
+    <section class="mt-10" data-animate>
+      <!-- === Education Section (hover-expand logic added) === -->
+      <div class="edu-container">
+        <div class="p-4 rounded-xl bg-white dark:bg-gray-800 shadow-md transition-all duration-300 edu-card">
+          <h3 class="font-bold text-blush-dark dark:text-pink-200">Bachelor of Technology (2021 – 2025)</h3>
+          <p>G. Narayanamma Institute of Technology and Science</p>
+          <p class="text-sm text-gray-500">Computer Science & Engineering</p>
+          <div class="course-info">
+            <strong>Coursework:</strong>
+            <ul class="list-disc ml-4">
+              <li>Data Structures & Algorithms</li>
+              <li>Operating Systems</li>
+              <li>DBMS</li>
+              <li>Computer Networks</li>
+              <li>Artificial Intelligence</li>
+              <li>Machine Learning</li>
+              <li>Web Technologies</li>
+              <li>Engineering Mathematics</li>
+              <li>Design & Analysis of Algorithms</li>
+              <li>Computer Organization & Architecture</li>
+              <li>Compiler Design</li>
+              <li>Basic Sciences</li>
+              <li>Object-Oriented Programming (OOPS)</li>
+              <li>Discrete Mathematics</li>
+            </ul>
+          </div>
+        </div>
+        <div class="p-4 rounded-xl bg-white dark:bg-gray-800 shadow-md transition-all duration-300 edu-card">
+          <h3 class="font-bold text-blush-dark dark:text-pink-200">Intermediate (2019 – 2021)</h3>
+          <p>Sree Nalanda Junior College</p>
+          <p class="text-sm text-gray-500">Math, Physics & Chemistry Stream</p>
+          <div class="course-info">
+            <strong>Subjects:</strong>
+            <ul class="list-disc ml-4">
+              <li>Mathematics</li>
+              <li>Physics</li>
+              <li>Chemistry</li>
+            </ul>
+          </div>
+        </div>
+        <div class="p-4 rounded-xl bg-white dark:bg-gray-800 shadow-md transition-all duration-300 edu-card">
+          <h3 class="font-bold text-blush-dark dark:text-pink-200">Schooling (– 2019)</h3>
+          <p>Excellent English Medium High School</p>
+          <div class="course-info">
+            <strong>Core Focus:</strong>
+            <ul class="list-disc ml-4">
+              <li>English</li>
+              <li>Science</li>
+              <li>Mathematics</li>
+              <li>Social Studies</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+
+    <!-- Technical Skills Cards -->
+    <section class="mt-10 grid md:grid-cols-3 gap-4" data-animate>
+      <div class="p-4 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+        <h3 class="font-semibold text-blush-dark dark:text-pink-200 mb-2">Languages</h3>
+        <ul class="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+          <li>Python</li>
+          <li>C++</li>
+          <li>Java</li>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+        </ul>
+      </div>
+      <div class="p-4 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+        <h3 class="font-semibold text-blush-dark dark:text-pink-200 mb-2">Frameworks</h3>
+        <ul class="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+          <li>React</li>
+          <li>Node.js</li>
+          <li>Flask</li>
+          <li>Tailwind CSS</li>
+        </ul>
+      </div>
+      <div class="p-4 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+        <h3 class="font-semibold text-blush-dark dark:text-pink-200 mb-2">Tools</h3>
+        <ul class="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+          <li>Git</li>
+          <li>Figma</li>
+          <li>VS Code</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Languages Spoken -->
+    <section class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4" data-animate>
+      <div class="p-4 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+        <h3 class="font-semibold text-blush-dark dark:text-pink-200 mb-2">Languages Spoken</h3>
+        <ul class="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+          <li>English (Fluent)</li>
+          <li>Telugu (Native)</li>
+          <li>Hindi (Proficient)</li>
+          <li>Spanish (Learning)</li>
+        </ul>
+      </div>
+    </section>
+
+   
+    
+<body class="text-gray-900 font-sans relative overflow-x-hidden transition duration-300">
+  <div class="max-w-5xl mx-auto px-6 py-10">
     <section class="mt-12" data-animate>
+      <!-- === Project Section (hover-expand logic + tech tooltips added) === -->
       <h2 class="text-2xl font-semibold text-blush-dark dark:text-pink-300 mb-4">Projects</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="p-5 rounded-xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+      <div class="project-container">
+        <div class="projext-card p-5 rounded-xl bg-white dark:bg-gray-800 shadow-md transition-all duration-300 project-card relative">
+          <div class="tech-tooltip" data-tech="Python, XGBoost, Flask, React">Tech</div>
           <h3 class="text-xl font-bold text-blush-dark dark:text-pink-200">SafeJob AI</h3>
           <p class="text-sm text-gray-500">Nov 2024 – Jan 2025</p>
-          <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 mt-2 text-sm">
-            <li>Built an XGBoost model to detect fake job posts from real-world listings.</li>
-            <li>Engineered 650+ features using job descriptions, titles, emails, and company domains.</li>
-            <li>Deployed a user-friendly web interface using Flask + JavaScript.</li>
-            <li>Delivered 95.7% accuracy with 90.2% recall for scam prevention.</li>
-          </ul>
+          <div class="project-details mt-2 text-sm text-grey-700 dark:text-gray-300">
+            <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 mt-2 text-sm">
+              <li>Built an XGBoost model to detect fake job posts from real-world listings.</li>
+              <li>Engineered 650+ features using job descriptions, titles, emails, and company domains.</li>
+              <li>Deployed a user-friendly web interface using Flask + JavaScript.</li>
+              <li>Delivered 98.7% accuracy with 96.2% recall for scam prevention.</li>
+            </ul>
+          </div>
         </div>
-        <div class="p-5 rounded-xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
-          <h3 class="text-xl font-bold text-blush-dark dark:text-pink-200">Seasonal-Fluctuations-in-River-Networks-through-Deep-Learning-Techniques</h3>
+        <div class="project-card p-5 rounded-xl bg-white dark:bg-gray-800 shadow-md transition-all duration-300 project-card relative">
+          <div class="tech-tooltip" data-tech="Python, DeepLabV3+, RNN, HOG, Canny Edge">Tech</div>
+          <h3 class="text-xl font-bold text-blush-dark dark:text-pink-200">Advance River Network and Climatic Change Detection</h3>
           <p class="text-sm text-gray-500">May 2022 – Mar 2025</p>
-          <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 mt-2 text-sm">
-            <li>Utilizes machine learning techniques to predict the presence of water bodies in satellite images and calculates the water level percentage.</li>
-            <li>Analyzes pairs of satellite images to determine environmental impacts such as drought, flood, or normal conditions.</li>
-            <li>Implemented image preprocessing and segmentation using TensorFlow and masked imagery for better detection.</li>
-            <li>Deployed a web interface using Flask to upload and compare satellite data interactively.</li>
-            <li>Aims to provide environmental monitoring and decision support using AI-powered image analysis.</li>
-          </ul>
+          <div class="project-details mt-2 text-sm text-grey-700 dark:text-300">
+            <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 mt-2 text-sm">
+              <li>Used DeepLabV3+ to extract river network from satellite data.</li>
+              <li>Processed 20 years of imagery using TensorFlow + OpenCV.</li>
+              <li>Designed preprocessing pipeline for enhanced river body segmentation and flood detection.</li>
+              <li>Scored 97.56% accuracy and 99.17% precision on test imagery.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
