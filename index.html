@@ -114,7 +114,7 @@
       max-height: 300px;
       margin-top: 1rem;
     }
-     .project-container {
+    .project-container {
       display: flex;
       flex-wrap: wrap;
       gap: 1.5rem;
@@ -123,14 +123,13 @@
       flex: 1 1 calc(50% - 1rem);
       transition: all 0.4s ease-in-out;
       position: relative;
-    }
-    .project-card {
-      flex: 1 1 calc(50% - 1rem);
+      overflow: visible;
     }
     .project-card:hover {
       flex: 1.5 1 calc(50% - 1rem);
       transform: scale(1.03);
       z-index: 10;
+    }
     .project-card .project-details {
       opacity: 0;
       max-height: 0;
@@ -152,22 +151,27 @@
       padding: 0.3rem 0.7rem;
       font-size: 0.75rem;
       cursor: pointer;
+      overflow: visible;
+      z-index: 50;
     }
     .tech-tooltip:hover::after {
       content: attr(data-tech);
       position: absolute;
-      bottom: -1.5rem;
+      bottom: -2rem;
       left: 50%;
       transform: translateX(-50%);
       background: #fff0f5;
       color: #333;
-      padding: 0.3rem 0.6rem;
-      border-radius: 0.375rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
       white-space: nowrap;
+      z-index: 100;
     }
   </style>
 </head>
+
+
 <body class="text-gray-900 font-sans relative overflow-x-hidden transition duration-300">
   <div class="max-w-5xl mx-auto px-6 py-10">
 
@@ -190,7 +194,7 @@
     <!-- About Me -->
     <section class="mt-10" data-animate>
       <h2 class="text-2xl font-semibold text-blush-dark border-b-2 border-blush inline-block mb-4">About Me</h2>
-      <p class="text-gray-700 dark:text-gray-200">Hey! I’m Digvisri — a CS grad trying to be creativity with my code. I love AI, design, and tech. When I’m not experimenting, I’m probably sketching interfaces or learning something weirdly cool.</p>
+      <p class="text-gray-700 dark:text-gray-200">Hey! I’m Digvisri — a CS grad trying to be creativity with my code. I love AI, design, and tech. When I’m not experimenting with neural networks, I’m probably sketching interfaces or learning something weirdly cool.</p>
     </section>
 
     <!-- Education Timeline as Hover Cards -->
