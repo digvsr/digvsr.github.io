@@ -183,7 +183,6 @@
         <p class="text-blush-dark text-lg mt-2 typing-text animate-typing dark:text-pink-200">Crafting code with a hint of magic ✨</p>
         <hr class="border-blush w-24 my-2">
         <p class="text-sm text-gray-800 dark:text-gray-300">
-          <a href="tel:+917075700752" class="hover:underline">+91-7075700752</a> |
           <a href="mailto:digvisripujav@gmail.com" class="hover:underline">digvisripujav@gmail.com</a> |
           <a href="https://linkedin.com/in/digvisri" class="hover:underline">LinkedIn</a> |
           <a href="https://github.com/digvsr" class="hover:underline">GitHub</a>
@@ -194,7 +193,7 @@
     <!-- About Me -->
     <section class="mt-10" data-animate>
       <h2 class="text-2xl font-semibold text-blush-dark border-b-2 border-blush inline-block mb-4">About Me</h2>
-      <p class="text-gray-700 dark:text-gray-200">Hey! I’m Digvisri — a CS grad trying to be creativity with my code. I love AI, design, and tech. When I’m not experimenting with neural networks, I’m probably sketching interfaces or learning something weirdly cool.</p>
+      <p class="text-gray-700 dark:text-gray-200">Hey! I’m Digvisri a CS grad trying to be creativity with my code. I love AI, design, and tech. When I’m not experimenting with neural networks, I’m probably sketching interfaces or learning something weirdly cool.</p>
     </section>
 
     <!-- Education Timeline as Hover Cards -->
@@ -313,34 +312,60 @@
       <h2 class="text-2xl font-semibold text-blush-dark dark:text-pink-300 mb-4">Projects</h2>
       <div class="project-container">
         <div class="projext-card p-5 rounded-xl bg-white dark:bg-gray-800 shadow-md transition-all duration-300 project-card relative">
-          <div class="tech-tooltip" data-tech="Python, XGBoost, Flask, React">Tech</div>
-          <h3 class="text-xl font-bold text-blush-dark dark:text-pink-200">SafeJob AI</h3>
-          <p class="text-sm text-gray-500">Nov 2024 – Jan 2025</p>
-          <div class="project-details mt-2 text-sm text-grey-700 dark:text-gray-300">
-            <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 mt-2 text-sm">
-              <li>Built an XGBoost model to detect fake job posts from real-world listings.</li>
-              <li>Engineered 650+ features using job descriptions, titles, emails, and company domains.</li>
-              <li>Deployed a user-friendly web interface using Flask + JavaScript.</li>
-              <li>Delivered 98.7% accuracy with 96.2% recall for scam prevention.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="project-card p-5 rounded-xl bg-white dark:bg-gray-800 shadow-md transition-all duration-300 project-card relative">
-          <div class="tech-tooltip" data-tech="Python, DeepLabV3+, RNN, HOG, Canny Edge">Tech</div>
-          <h3 class="text-xl font-bold text-blush-dark dark:text-pink-200">Advance River Network and Climatic Change Detection</h3>
-          <p class="text-sm text-gray-500">May 2022 – Mar 2025</p>
-          <div class="project-details mt-2 text-sm text-grey-700 dark:text-300">
-            <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 mt-2 text-sm">
-              <li>Used DeepLabV3+ to extract river network from satellite data.</li>
-              <li>Processed 20 years of imagery using TensorFlow + OpenCV.</li>
-              <li>Designed preprocessing pipeline for enhanced river body segmentation and flood detection.</li>
-              <li>Scored 97.56% accuracy and 99.17% precision on test imagery.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="tech-tooltip" data-tech="Python, XGBoost, Flask, TF-IDF, Regex, React">Tech</div>
+  <h3 class="text-xl font-bold text-blush-dark dark:text-pink-200">SafeJob AI</h3>
+  <p class="text-sm text-gray-500">Nov 2024 – Jan 2025</p>
+  <div class="project-details mt-2 text-sm text-grey-700 dark:text-gray-300">
+    <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 mt-2 text-sm">
+      <li>Designed an AI-driven system to identify and flag suspicious job listings from real-world datasets.</li>
+      <li>Engineered 650+ textual and metadata features using advanced NLP (TF-IDF), email patterning, and sentiment scoring.</li>
+      <li>Achieved 98.7% accuracy and 96.2% recall using XGBoost with dynamic threshold tuning for fraud detection.</li>
+      <li>Built a minimalistic Flask web app to allow users to paste job descriptions and receive live risk assessments.</li>
+      <li>Integrated feedback capture loop into UI for labeling ambiguous listings and improving model robustness over time.</li>
+      <li>Handled dataset preprocessing including anonymization, outlier filtering, and feature normalization for scalable deployment.</li>
+      <li>
+      </li>
+    </ul>
   </div>
+</div>
+        <div class="project-card p-5 rounded-xl bg-white dark:bg-gray-800 shadow-md transition-all duration-300 project-card relative">
+  <div class="tech-tooltip" data-tech="Python, Web3.py, Event Listening, Risk Models, FinBERT, Plotly, MongoDB">Tech</div>
+  <h3 class="text-xl font-bold text-blush-dark dark:text-pink-200">Protocol Upgrade Monitor</h3>
+  <p class="text-sm text-gray-500">Feb 2025 – Present</p>
+  <div class="project-details mt-2 text-sm text-grey-700 dark:text-gray-300">
+    <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 mt-2 text-sm">
+      <li>Developed a real-time blockchain event listener to track token upgrades, unlocks, and governance proposals on major EVM chains.</li>
+      <li>Integrated a modular risk assessment engine using sentiment fusion (FinBERT + GPT) and historical volatility signals.</li>
+      <li>Predicted liquidity impacts from whale activity, smart contract migrations, and sudden treasury movements.</li>
+      <li>Built dashboards with Plotly for upgrade alerts, token sentiment trends, and volatility heatmaps.</li>
+      <li>Included wallet-level analytics and anomaly detection to flag suspicious transaction clusters post-upgrade.</li>
+      <li>Deployed cron-triggered scripts on backend for daily syncs and auto-refreshing cache layers (Python + MongoDB).</li>
+      <li>
+      </li>
+    </ul>
+  </div>
+</div>
+
+        <div class="project-card p-5 rounded-xl bg-white dark:bg-gray-800 shadow-md transition-all duration-300 project-card relative">
+  <div class="tech-tooltip" data-tech="Python, DeepLabV3+, RNN, HOG, OpenCV, TensorFlow, Canny Edge">Tech</div>
+  <h3 class="text-xl font-bold text-blush-dark dark:text-pink-200">Advance River Network and Climatic Change Detection</h3>
+  <p class="text-sm text-gray-500">May 2022 – Mar 2025</p>
+  <div class="project-details mt-2 text-sm text-grey-700 dark:text-gray-300">
+    <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 mt-2 text-sm">
+      <li>Architected a multi-stage geospatial analysis pipeline to detect and segment dynamic river networks using 20+ years of satellite imagery across seasonal timelines.</li>
+      <li>Leveraged <strong>DeepLabV3+</strong> with custom loss functions and augmentation layers to accurately delineate meandering and braided rivers amidst varying terrain and vegetation.</li>
+      <li>Integrated <strong>HOG-based terrain recognition</strong> with <strong>Canny Edge Detection</strong> and <strong>climatic thresholding</strong> to identify high-risk flood zones and flash-flood prone areas.</li>
+      <li>Trained <strong>RNN models</strong> to recognize temporal shifts in water coverage, climate anomalies, and upstream erosion patterns using chronological satellite bands.</li>
+      <li>Achieved <strong>97.56% segmentation accuracy</strong> and <strong>99.17% precision</strong> on unseen hydrological datasets, outperforming traditional CNN and watershed-based models.</li>
+      <li>Visualized flood trajectory heatmaps and river delta morphologies with real-time overlays using OpenCV and TensorFlow, enabling predictive flood warning use cases.</li>
+      <li>Designed a modular framework to allow seamless switching between dry season vs monsoon models, improving adaptability for real-world hydrological use.</li>
+    </ul>
+  </div>
+</div>
+</div>
+</section>
+</div>
+
 
   <script>
     const observer = new IntersectionObserver(entries => {
